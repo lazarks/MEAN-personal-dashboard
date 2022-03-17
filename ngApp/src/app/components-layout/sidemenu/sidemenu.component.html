@@ -13,6 +13,7 @@
   </div>
   <!-- router links -->
   <ul class="nav-links">
+    <!-- standard links -->
     <li class="nav-item" *ngFor="let data of navData">
       <a
         class="nav-link"
@@ -24,6 +25,14 @@
         <span class="link-text" @fadeInOut *ngIf="collapsed">{{
           data.label
         }}</span>
+      </a>
+    </li>
+
+    <!-- opens the layout -->
+    <li class="nav-item">
+      <a class="nav-link" (click)="showOverlay()">
+        <i class="link-icon fas fa-image"></i>
+        <span class="link-text" @fadeInOut *ngIf="collapsed">Overlay</span>
       </a>
     </li>
   </ul>

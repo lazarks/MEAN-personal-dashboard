@@ -5,9 +5,9 @@ export const navbarData = [
     label: 'Dashboard',
   },
   {
-    routeLink: 'overlay',
-    icon: 'fas fa-image',
-    label: 'Overlay',
+    routeLink: '[temp]',
+    icon: 'fas fa-home',
+    label: 'Dashboard',
   },
 ];
 // fas | far | fal | fad

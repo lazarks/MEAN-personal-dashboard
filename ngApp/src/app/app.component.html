@@ -1,5 +1,9 @@
-<app-sidemenu (onToggleSideNav)="onToggleSideNav($event)"></app-sidemenu>
+<app-sidemenu
+  (onToggleSideNav)="onToggleSideNav($event)"
+  (onLayoutOpen)="onLayoutOpen()"
+></app-sidemenu>
 <app-body
   [collapsed]="isSideNavCollapsed"
   [screenWidth]="screenWidth"
 ></app-body>
+<app-overlay></app-overlay>

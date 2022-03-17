@@ -24,6 +24,7 @@ interface SideNavToggle {
   templateUrl: './sidemenu.component.html',
   styleUrls: ['./sidemenu.component.scss'],
   animations: [
+    // nav links
     trigger('fadeInOut', [
       transition(':enter', [
         style({ opacity: 0 }),
@@ -34,6 +35,7 @@ interface SideNavToggle {
         animate('350ms', style({ opacity: 0 })),
       ]),
     ]),
+    // close button
     trigger('rotate', [
       transition(':enter', [
         animate(
@@ -48,6 +50,10 @@ interface SideNavToggle {
   ],
 })
 export class SidemenuComponent {
+  // "Layout" nav link sends this emmiter to parent "AppComponent"
+  // which opens the layout
+  @Output() onLayoutOpen: EventEmitter<any> = new EventEmitter();
+
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   screenWidth: number = window.innerWidth;
   collapsed: boolean = false;
@@ -82,5 +88,10 @@ export class SidemenuComponent {
       collapsed: this.collapsed,
       screenWidth: this.screenWidth,
     });
+  }
+
+  // overlay
+  showOverlay(): void {
+    this.onLayoutOpen.emit();
   }
 }
