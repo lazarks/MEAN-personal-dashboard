@@ -7,11 +7,15 @@
 
   z-index: 999;
 
-  background-color: #222;
+  background-color: #0088a9;
   cursor: pointer;
   transition: top 0.8s ease-out;
 
   &.collapsed {
     top: -100%;
+  }
+
+  .content {
+    color: #f3f3f3;
   }
 }

@@ -75,10 +75,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-end;
 
     .nav-item {
       width: 100%;
       margin-bottom: 0.6rem;
+
+      &.last {
+        margin: auto auto 50px;
+      }
 
       &:hover {
         .nav-link {

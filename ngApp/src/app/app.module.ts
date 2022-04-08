@@ -8,6 +8,7 @@ import { SidemenuComponent } from './components-layout/sidemenu/sidemenu.compone
 import { BodyComponent } from './components-layout/body/body.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OverlayComponent } from './components-layout/overlay/overlay.component';
+import { NotesComponent } from './components/notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { OverlayComponent } from './components-layout/overlay/overlay.component'
     BodyComponent,
     OverlayComponent,
     DashboardComponent,
+    NotesComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],
   providers: [],
