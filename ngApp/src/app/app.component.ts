@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { OverlayComponent } from './components-layout/overlay/overlay.component';
+import { UtilsService } from './services/utils.service';
 
 interface SideNavToggle {
   screenWidth: number;

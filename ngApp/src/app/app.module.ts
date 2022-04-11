@@ -9,15 +9,22 @@ import { BodyComponent } from './components-layout/body/body.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OverlayComponent } from './components-layout/overlay/overlay.component';
 import { NotesComponent } from './components/notes/notes.component';
+import { ThemePickerComponent } from './components/theme-picker/theme-picker.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    // layout
     SidemenuComponent,
     BodyComponent,
     OverlayComponent,
+    // pages
     DashboardComponent,
     NotesComponent,
+    SettingsComponent,
+    // utils
+    ThemePickerComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],
   providers: [],

@@ -9,5 +9,10 @@ export const navbarData = [
     icon: 'fas fa-sticky-note',
     label: 'Notes',
   },
+  {
+    routeLink: 'settings',
+    icon: 'fas fa-cog',
+    label: 'Settings',
+  },
 ];
 // fas | far | fal | fad

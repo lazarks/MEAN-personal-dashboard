@@ -7,11 +7,14 @@ import {
 } from '@angular/animations';
 import {
   Component,
+  ElementRef,
   EventEmitter,
   HostListener,
+  Input,
   OnInit,
   Output,
 } from '@angular/core';
+import { UtilsService } from 'src/app/services/utils.service';
 import { navbarData } from './nav-data';
 
 interface SideNavToggle {
@@ -58,8 +61,14 @@ export class SidemenuComponent {
   screenWidth: number = window.innerWidth;
   collapsed: boolean = false;
   navData: any = navbarData;
+  primaryColor = '#0088a9';
 
-  constructor() {}
+  constructor(private utils: UtilsService, private elementRef: ElementRef) {
+    this.utils.colorChange.subscribe((color: string) => {
+      this.primaryColor = color;
+      console.log(this.primaryColor);
+    });
+  }
 
   @HostListener('window:resize', ['$event']) onResize(event: any) {
     this.screenWidth = window.innerWidth;
