@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class UtilsService {
+  dColor: string = '#0088a9';
   colorChange: Subject<string> = new Subject<string>();
 
   constructor() {}

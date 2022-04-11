@@ -11,6 +11,7 @@ import { OverlayComponent } from './components-layout/overlay/overlay.component'
 import { NotesComponent } from './components/notes/notes.component';
 import { ThemePickerComponent } from './components/theme-picker/theme-picker.component';
 import { SettingsComponent } from './components/settings/settings.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,12 @@ import { SettingsComponent } from './components/settings/settings.component';
     // utils
     ThemePickerComponent,
   ],
-  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

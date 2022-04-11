@@ -66,7 +66,6 @@ export class SidemenuComponent {
   constructor(private utils: UtilsService, private elementRef: ElementRef) {
     this.utils.colorChange.subscribe((color: string) => {
       this.primaryColor = color;
-      console.log(this.primaryColor);
     });
   }
 

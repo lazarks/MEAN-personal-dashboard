@@ -1,6 +1,16 @@
-<nav class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+<nav
+  class="sidenav"
+  [ngClass]="collapsed ? 'sidenav-collapsed' : ''"
+  [ngStyle]="{ 'background-color': primaryColor }"
+>
   <div class="logo-container">
-    <button class="logo" (click)="toggleCollapse()">MD</button>
+    <button
+      class="logo"
+      (click)="toggleCollapse()"
+      [ngStyle]="{ color: primaryColor }"
+    >
+      MD
+    </button>
     <div class="logo-text" @fadeInOut *ngIf="collapsed">MyDashboard</div>
     <button
       class="btn-close"

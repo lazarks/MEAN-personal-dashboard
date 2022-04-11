@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
@@ -7,11 +7,17 @@ import { UtilsService } from 'src/app/services/utils.service';
   styleUrls: ['./theme-picker.component.scss'],
 })
 export class ThemePickerComponent implements OnInit {
+  clr: string = '';
   constructor(private utils: UtilsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.clr = this.utils.dColor;
+  }
 
-  changeColor(value: any) {
-    this.utils.colorChange.next(value.value);
+  changeColor(event: any) {
+    let value = event.target.value;
+    this.clr = value;
+    this.utils.dColor = value;
+    this.utils.colorChange.next(value);
   }
 }
