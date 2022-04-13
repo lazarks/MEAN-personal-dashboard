@@ -8,10 +8,11 @@ import { SidemenuComponent } from './components-layout/sidemenu/sidemenu.compone
 import { BodyComponent } from './components-layout/body/body.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NotesComponent } from './components/notes/notes.component';
-import { ThemePickerComponent } from './components/theme-picker/theme-picker.component';
+
 import { SettingsComponent } from './components/settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from './components-layout/layout.module';
+import { ThemePickerComponent } from './components/settings/theme-picker/theme-picker.component';
 
 @NgModule({
   declarations: [
