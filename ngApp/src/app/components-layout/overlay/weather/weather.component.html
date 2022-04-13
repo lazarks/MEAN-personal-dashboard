@@ -1,1 +1,7 @@
-<p>weather works!</p>
+<div class="container" *ngIf="weather">
+  <ul>
+    <li>{{ weather.dt | date: "h:mm a" }}</li>
+    <li>{{ weather.main.temp | number: "1.0-0" }} &#8451;</li>
+    <li>{{ weather.name }}, {{ weather.sys.country }}</li>
+  </ul>
+</div>
