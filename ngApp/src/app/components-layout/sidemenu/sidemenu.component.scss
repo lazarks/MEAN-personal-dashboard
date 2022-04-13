@@ -8,6 +8,7 @@
   box-shadow: 0.06rem 2rem 1.25rem #8690a3;
   transition: all 0.5s ease;
   z-index: 98;
+  cursor: pointer;
 
   &.sidenav-collapsed {
     width: 16.5rem;
@@ -70,7 +71,6 @@
     height: calc(100% - 3.65rem);
     margin: 0;
     padding: 0.938rem;
-    cursor: pointer;
 
     display: flex;
     flex-direction: column;
@@ -80,6 +80,7 @@
     .nav-item {
       width: 100%;
       margin-bottom: 0.6rem;
+      cursor: pointer;
 
       &.last {
         margin: auto auto 50px;

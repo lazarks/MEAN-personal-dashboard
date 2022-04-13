@@ -2,21 +2,22 @@
   class="sidenav"
   [ngClass]="collapsed ? 'sidenav-collapsed' : ''"
   [ngStyle]="{ 'background-color': primaryColor }"
+  (click)="toggleCollapse()"
 >
   <div class="logo-container">
     <button
       class="logo"
-      (click)="toggleCollapse()"
+      (click)="toggleCollapse(); $event.stopPropagation()"
       [ngStyle]="{ color: primaryColor }"
     >
-      MD
+      D
     </button>
     <div class="logo-text" @fadeInOut *ngIf="collapsed">MyDashboard</div>
     <button
       class="btn-close"
       @rotate
       *ngIf="collapsed"
-      (click)="closeSidenav()"
+      (click)="toggleCollapse(); $event.stopPropagation()"
     >
       <i class="fal fa-times close-icon"></i>
     </button>
@@ -30,6 +31,7 @@
         [routerLink]="[data.routeLink]"
         routerLinkActive="active"
         [routerLinkActiveOptions]="{ exact: true }"
+        (click)="$event.stopPropagation()"
       >
         <i class="link-icon" [class]="data.icon"></i>
         <span class="link-text" @fadeInOut *ngIf="collapsed">{{
@@ -40,7 +42,7 @@
 
     <!-- opens the layout -->
     <li class="nav-item last">
-      <a class="nav-link" (click)="showOverlay()">
+      <a class="nav-link" (click)="showOverlay(); $event.stopPropagation()">
         <i class="link-icon fas fa-image"></i>
         <span class="link-text" @fadeInOut *ngIf="collapsed">Overlay</span>
       </a>
