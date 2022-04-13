@@ -12,7 +12,6 @@ import { NotesComponent } from './components/notes/notes.component';
 import { SettingsComponent } from './components/settings/settings.component';
 import { FormsModule } from '@angular/forms';
 import { LayoutModule } from './components-layout/layout.module';
-import { ThemePickerComponent } from './components/settings/theme-picker/theme-picker.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,6 @@ import { ThemePickerComponent } from './components/settings/theme-picker/theme-p
     DashboardComponent,
     NotesComponent,
     SettingsComponent,
-    // utils
-    ThemePickerComponent,
   ],
   imports: [BrowserModule, BrowserAnimationsModule, FormsModule, LayoutModule],
   providers: [],
