@@ -10,8 +10,6 @@ import {
   ElementRef,
   EventEmitter,
   HostListener,
-  Input,
-  OnInit,
   Output,
 } from '@angular/core';
 import { UtilsService } from 'src/app/services/utils.service';
@@ -35,7 +33,7 @@ interface SideNavToggle {
       ]),
       transition(':leave', [
         style({ opacity: 1 }),
-        animate('350ms', style({ opacity: 0 })),
+        animate('200ms', style({ opacity: 0 })),
       ]),
     ]),
     // close button

@@ -7,19 +7,15 @@ import { AppComponent } from './app.component';
 import { SidemenuComponent } from './components-layout/sidemenu/sidemenu.component';
 import { BodyComponent } from './components-layout/body/body.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { OverlayComponent } from './components-layout/overlay/overlay.component';
 import { NotesComponent } from './components/notes/notes.component';
 import { ThemePickerComponent } from './components/theme-picker/theme-picker.component';
 import { SettingsComponent } from './components/settings/settings.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { LayoutModule } from './components-layout/layout.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // layout
-    SidemenuComponent,
-    BodyComponent,
-    OverlayComponent,
     // pages
     DashboardComponent,
     NotesComponent,
@@ -27,12 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     // utils
     ThemePickerComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    FormsModule,
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, FormsModule, LayoutModule],
   providers: [],
   bootstrap: [AppComponent],
 })
