@@ -43,11 +43,15 @@
     justify-content: space-between;
 
     .flex-wrapper {
-      border: 1px dashed #00ccff;
+      // border: 1px dashed #00ccff;
       position: relative;
       width: 400px;
       height: 200px;
       margin: 20px;
+
+      &.forecast {
+        height: 300px;
+      }
 
       &.music-player {
         align-self: flex-end;

@@ -1,7 +1,5 @@
 export interface Weather {
   weather: WeatherInfo[];
-
-  dt: number;
   name: string;
 
   main: {
