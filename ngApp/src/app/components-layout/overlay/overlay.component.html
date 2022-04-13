@@ -1,4 +1,22 @@
 <div class="overlay" [ngClass]="collapsed ? '' : 'collapsed'" (click)="slide()">
-  <div class="content">inside overlay content</div>
+  <div class="content">
+    <video
+      loop
+      autoplay
+      oncanplay="this.play()"
+      muted
+      onloadedmetadata="this.muted = true"
+    >
+      <source src="../../../assets/overlay-background.mp4" />
+    </video>
+    <div class="overlay-filter"></div>
+
+    <div class="container">
+      <button type="button" (click)="playAudio($event)">
+        <i *ngIf="!isPlaying" class="fal fa-play-circle fa-6x"></i>
+        <i *ngIf="isPlaying" class="fal fa-pause-circle fa-6x"></i>
+      </button>
+    </div>
+  </div>
 </div>
 <!-- temp overlay -->
