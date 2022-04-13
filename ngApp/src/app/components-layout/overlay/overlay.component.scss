@@ -6,67 +6,51 @@
   height: 100%;
 
   z-index: 888;
-
-  // background-color: #0088a9;
-  // background: linear-gradient(-45deg, #ee7752, #e73c7e, #0088a9, #f3f3f3);
-  // background-size: 400% 400%;
-  // animation: gradient 15s ease infinite;
   cursor: pointer;
   transition: top 0.8s ease-out;
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+    opacity: 0.95;
+  }
+
+  .overlay-filter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0088a9;
+    mix-blend-mode: overlay;
+  }
 
   &.collapsed {
     top: -100%;
   }
 
   .content {
-    color: #f3f3f3;
+    position: relative;
+    color: #fff;
+    z-index: 999;
     height: 100%;
+
     display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+    justify-content: space-between;
 
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      object-fit: cover;
-      height: 100%;
-      opacity: 0.95;
-    }
-
-    .overlay-filter {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #0088a9;
-      mix-blend-mode: overlay;
-    }
-
-    .container {
-      z-index: 900;
+    .flex-wrapper {
+      border: 1px dashed #00ccff;
       position: relative;
-      // background-color: #0088a9;
-      width: 200px;
+      width: 400px;
       height: 200px;
       margin: 20px;
 
-      button {
-        background: transparent;
-        border: none;
-        color: white;
-
-        i {
-          color: #00ccff;
-          cursor: pointer;
-          transition: 0.3s;
-
-          &:hover {
-            transform: scale(1.2);
-          }
-        }
+      &.music-player {
+        align-self: flex-end;
       }
     }
   }
