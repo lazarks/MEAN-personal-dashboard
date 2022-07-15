@@ -19,13 +19,13 @@ export class VisualizerComponent implements OnInit, AfterViewInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.audio.src = '../../../assets/tempAudio.mp3';
     this.audio.load();
     this.audio.play();
+  }
 
+  ngAfterViewInit(): void {
     let context = new AudioContext();
     let src = context.createMediaElementSource(this.audio);
     let analyser = context.createAnalyser();
