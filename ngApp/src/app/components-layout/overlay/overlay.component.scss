@@ -40,7 +40,7 @@
     height: 100%;
 
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
 
     .flex-wrapper {
       // border: 1px dashed #00ccff;
@@ -56,6 +56,11 @@
       &.music-player {
         align-self: flex-end;
       }
+    }
+
+    .visualizer {
+      background: blue;
+      height: fit-content;
     }
   }
 
