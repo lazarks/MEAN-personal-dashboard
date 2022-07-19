@@ -10,18 +10,18 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class WeatherComponent implements OnInit {
   weather: Weather | undefined;
-  currentTime: string = new Date(
-    moment().valueOf() + 3600 * 1000
-  ).toLocaleTimeString('en-GB');
+  currentTime: string = new Date(moment().valueOf()).toLocaleTimeString(
+    'en-GB'
+  );
 
   constructor(private http: HttpService) {}
 
   ngOnInit(): void {
     this.search('Niš');
     setInterval(() => {
-      this.currentTime = new Date(
-        moment().valueOf() + 3600 * 1000
-      ).toLocaleTimeString('en-GB');
+      this.currentTime = new Date(moment().valueOf()).toLocaleTimeString(
+        'en-GB'
+      );
     }, 1000);
   }
 

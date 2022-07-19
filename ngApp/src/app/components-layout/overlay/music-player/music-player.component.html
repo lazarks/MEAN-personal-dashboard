@@ -3,4 +3,15 @@
     <i *ngIf="!isPlaying" class="fal fa-play-circle fa-4x"></i>
     <i *ngIf="isPlaying" class="fal fa-pause-circle fa-4x"></i>
   </button>
+
+  <div class="visualizer">
+    <canvas #canvas id="canvas"></canvas>
+    <!-- <audio
+      id="audio"
+      [(ngModel)]="audio"
+      name="audioP"
+      ngDefaultControl
+      controls
+    ></audio> -->
+  </div>
 </div>

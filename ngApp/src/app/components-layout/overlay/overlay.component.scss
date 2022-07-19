@@ -55,13 +55,15 @@
 
       &.music-player {
         align-self: flex-end;
+        width: 600px;
+        height: 600px;
       }
     }
 
-    .visualizer {
-      background: blue;
-      height: fit-content;
-    }
+    // .visualizer {
+    //   background: blue;
+    //   height: fit-content;
+    // }
   }
 
   @keyframes gradient {
