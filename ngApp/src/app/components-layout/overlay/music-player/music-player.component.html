@@ -4,11 +4,9 @@
       <i *ngIf="!isPlaying" class="fal fa-play-circle fa-4x"></i>
       <i *ngIf="isPlaying" class="fal fa-pause-circle fa-4x"></i>
     </button>
+    <h4>cxlt. x Nuver - Conversations In Reverse</h4>
   </div>
-  <div
-    class="visualizer"
-    [ngClass]="isPlaying ? 'visualizer' : 'visualizer hide'"
-  >
+  <div [ngClass]="isPlaying ? 'visualizer' : 'visualizer hide'">
     <canvas #canvas id="canvas"></canvas>
   </div>
 </div>

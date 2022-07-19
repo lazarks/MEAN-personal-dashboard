@@ -1,10 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-music-player',
@@ -44,7 +38,8 @@ export class MusicPlayerComponent implements OnInit {
   loadVisualiser() {
     let analyser = this.audioContext.createAnalyser();
     let ctx = this.myCanvas.nativeElement.getContext('2d');
-
+    this.myCanvas.nativeElement.width = window.innerWidth;
+    this.myCanvas.nativeElement.height = '300';
     this.src.connect(analyser);
     analyser.connect(this.audioContext.destination);
     analyser.fftSize = 256;
@@ -56,7 +51,7 @@ export class MusicPlayerComponent implements OnInit {
     let WIDTH = this.myCanvas.nativeElement.width;
     let HEIGHT = this.myCanvas.nativeElement.height;
 
-    let barWidth = (WIDTH / bufferLength) * 2.2;
+    let barWidth = (WIDTH / bufferLength) * 2;
     let barHeight;
     let x = 0;
 
@@ -69,15 +64,16 @@ export class MusicPlayerComponent implements OnInit {
       ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
       for (let i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i];
+        barHeight = dataArray[i] + 10;
+
         var r = 0;
-        var g = barHeight + 150 * (i / bufferLength);
-        var b = 255;
+        var g = barHeight + 100 - 200 * (i / bufferLength);
+        var b = 200;
 
         ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
         ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-        x += barWidth + 1;
+        x += barWidth + 5;
       }
     }
   }

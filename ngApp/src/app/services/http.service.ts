@@ -10,6 +10,7 @@ import { Weather } from '../models/weather.model';
 export class HttpService {
   constructor(private http: HttpClient) {}
 
+  // TODO: change to diff api that automatically gets user location(lat, lon)
   getWeather(city: string): Observable<Weather> {
     let options = new HttpParams()
       .set('units', 'metric')
