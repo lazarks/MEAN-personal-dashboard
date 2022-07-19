@@ -21,7 +21,8 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.audio = new Audio();
-    this.audio.src = '../../../assets/tempAudio.mp3';
+    // this.audio.src = '../../../assets/tempAudio.mp3';
+    this.audio.src = '../../../assets/audio/cxlt.mp3';
     this.context = new AudioContext();
   }
 
@@ -45,7 +46,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
     let WIDTH = this.myCanvas.nativeElement.width;
     let HEIGHT = this.myCanvas.nativeElement.height;
 
-    let barWidth = (WIDTH / bufferLength) * 2.5;
+    let barWidth = (WIDTH / bufferLength) * 2.2;
     let barHeight;
     let x = 0;
 
@@ -55,14 +56,13 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
       requestAnimationFrame(renderFrame);
       x = 0;
       analyser.getByteFrequencyData(dataArray);
-      ctx!.fillStyle = '#000';
-      ctx!.fillRect(0, 0, WIDTH, HEIGHT);
+      ctx!.clearRect(0, 0, WIDTH, HEIGHT);
 
       for (let i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
-        let r = barHeight + 25 * (i / bufferLength);
-        var g = 250 * (i / bufferLength);
-        var b = 50;
+        var r = 0;
+        var g = barHeight + 150 * (i / bufferLength);
+        var b = 255;
 
         ctx!.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
         ctx!.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);

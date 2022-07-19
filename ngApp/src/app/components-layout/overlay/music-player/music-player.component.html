@@ -1,17 +1,14 @@
 <div class="container">
-  <button type="button" (click)="toggleAudio($event)">
-    <i *ngIf="!isPlaying" class="fal fa-play-circle fa-4x"></i>
-    <i *ngIf="isPlaying" class="fal fa-pause-circle fa-4x"></i>
-  </button>
-
-  <div class="visualizer">
+  <div class="playPauseButtonContainer">
+    <button type="button" (click)="toggleAudio($event)">
+      <i *ngIf="!isPlaying" class="fal fa-play-circle fa-4x"></i>
+      <i *ngIf="isPlaying" class="fal fa-pause-circle fa-4x"></i>
+    </button>
+  </div>
+  <div
+    class="visualizer"
+    [ngClass]="isPlaying ? 'visualizer' : 'visualizer hide'"
+  >
     <canvas #canvas id="canvas"></canvas>
-    <!-- <audio
-      id="audio"
-      [(ngModel)]="audio"
-      name="audioP"
-      ngDefaultControl
-      controls
-    ></audio> -->
   </div>
 </div>

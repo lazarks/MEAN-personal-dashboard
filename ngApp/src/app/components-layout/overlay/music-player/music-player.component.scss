@@ -1,37 +1,41 @@
 .container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 20px;
-  // align-items: center;
   padding: 20px;
-  height: 100%;
   z-index: 100;
-  button {
-    height: fit-content;
-    background: transparent;
-    border: none;
-    color: white;
+  height: fit-content;
 
-    i {
-      color: #00ccff;
-      cursor: pointer;
-      transition: 0.3s;
+  .playPauseButtonContainer {
+    button {
+      background: transparent;
+      border: none;
+      i {
+        color: rgb(0, 204, 255);
+        cursor: pointer;
+        transition: 0.3s;
 
-      &:hover {
-        transform: scale(1.2);
+        &:hover {
+          transform: scale(1.2);
+        }
       }
     }
   }
 
   .visualizer {
+    opacity: 0.5;
     z-index: 99;
-    background: blue;
+    transition: opacity 1s;
 
     #canvas {
+      border-radius: 20px;
       width: 100%;
-      height: 100%;
-      background: green;
+      height: 150px;
+    }
+
+    &.hide {
+      opacity: 0;
     }
   }
 }

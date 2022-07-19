@@ -41,29 +41,22 @@
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 
     .flex-wrapper {
-      // border: 1px dashed #00ccff;
       position: relative;
-      width: 400px;
-      height: 200px;
-      margin: 20px;
+      width: 100%;
 
       &.forecast {
-        height: 300px;
+        align-self: flex-start;
+        padding: 20px;
+        width: 300px;
       }
 
-      &.music-player {
-        align-self: flex-end;
-        width: 600px;
-        height: 600px;
-      }
+      // &.music-player {
+      //   align-self: flex-end;
+      // }
     }
-
-    // .visualizer {
-    //   background: blue;
-    //   height: fit-content;
-    // }
   }
 
   @keyframes gradient {
