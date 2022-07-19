@@ -11,32 +11,42 @@ import {
   templateUrl: './music-player.component.html',
   styleUrls: ['./music-player.component.scss'],
 })
-export class MusicPlayerComponent implements OnInit, AfterViewInit {
+export class MusicPlayerComponent implements OnInit {
   isPlaying: boolean = false;
-  audio: any;
-  context!: AudioContext;
+  audio: any; // audio file
+  audioContext!: AudioContext;
+  src: any; // media element source from audio context
   @ViewChild('canvas', { static: false }) myCanvas!: ElementRef;
 
   constructor() {}
 
   ngOnInit(): void {
     this.audio = new Audio();
-    // this.audio.src = '../../../assets/tempAudio.mp3';
     this.audio.src = '../../../assets/audio/cxlt.mp3';
-    this.context = new AudioContext();
   }
 
-  ngAfterViewInit(): void {
-    this.loadCanvas();
+  toggleAudio(event: Event) {
+    event.stopPropagation(); // prevent overlay closing on click
+    if (this.isPlaying) {
+      this.audio.pause();
+    } else {
+      // here because web autoplay policy -.-
+      if (!this.audioContext) {
+        this.audioContext = new AudioContext();
+        this.src = this.audioContext.createMediaElementSource(this.audio);
+      }
+      this.loadVisualiser();
+      this.audio.play();
+    }
+    this.isPlaying = !this.isPlaying;
   }
 
-  loadCanvas() {
-    let src = this.context.createMediaElementSource(this.audio);
-    let analyser = this.context.createAnalyser();
+  loadVisualiser() {
+    let analyser = this.audioContext.createAnalyser();
     let ctx = this.myCanvas.nativeElement.getContext('2d');
 
-    src.connect(analyser);
-    analyser.connect(this.context.destination);
+    this.src.connect(analyser);
+    analyser.connect(this.audioContext.destination);
     analyser.fftSize = 256;
 
     let bufferLength = analyser.frequencyBinCount;
@@ -56,7 +66,7 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
       requestAnimationFrame(renderFrame);
       x = 0;
       analyser.getByteFrequencyData(dataArray);
-      ctx!.clearRect(0, 0, WIDTH, HEIGHT);
+      ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
       for (let i = 0; i < bufferLength; i++) {
         barHeight = dataArray[i];
@@ -64,21 +74,11 @@ export class MusicPlayerComponent implements OnInit, AfterViewInit {
         var g = barHeight + 150 * (i / bufferLength);
         var b = 255;
 
-        ctx!.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
-        ctx!.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+        ctx.fillStyle = 'rgb(' + r + ',' + g + ',' + b + ')';
+        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
         x += barWidth + 1;
       }
     }
-  }
-
-  toggleAudio(event: Event) {
-    event.stopPropagation();
-    if (this.isPlaying) {
-      this.audio.pause();
-    } else {
-      this.audio.play();
-    }
-    this.isPlaying = !this.isPlaying;
   }
 }
