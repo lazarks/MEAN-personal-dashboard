@@ -1,7 +1,9 @@
 .body {
   height: 100vh;
   width: calc(100% - 5rem); // sidebar width when hidden
+  max-width: 2000px;
   margin-left: 5rem;
+
   background: #f4f7fa;
   padding: 3rem;
   top: 0;
